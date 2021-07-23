@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { AddPokemonComponent } from './component/add-pokemon/add-pokemon.component';
 import { ButtonComponent } from './component/button/button.component';
+import { PokemonComponent } from './component/pokemon/pokemon.component';
+import { PokemonItemComponent } from './component/pokemon-item/pokemon-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AddPokemonComponent,
-    ButtonComponent
+    ButtonComponent,
+    PokemonComponent,
+    PokemonItemComponent
   ],
   imports: [
     BrowserModule,
