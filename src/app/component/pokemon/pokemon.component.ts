@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/Pokemon';
-import { POKEDEX } from 'src/app/mock-back';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -8,8 +8,14 @@ import { POKEDEX } from 'src/app/mock-back';
   styleUrls: ['./pokemon.component.css'],
 })
 export class PokemonComponent implements OnInit {
-  pokedex: Pokemon[] = POKEDEX;
-  constructor() {}
+  pokedex: Pokemon[] = [];
+  constructor(private pokemonService: PokemonService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pokemonService
+      .getPokemon()
+      .subscribe((pokedex) => (this.pokedex = pokedex));
+  }
 }
+
+//void mean it does not return anything

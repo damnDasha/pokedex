@@ -8,6 +8,7 @@ import { AddPokemonComponent } from './component/add-pokemon/add-pokemon.compone
 import { ButtonComponent } from './component/button/button.component';
 import { PokemonComponent } from './component/pokemon/pokemon.component';
 import { PokemonItemComponent } from './component/pokemon-item/pokemon-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PokemonItemComponent } from './component/pokemon-item/pokemon-item.comp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

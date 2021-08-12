@@ -1,5 +1,8 @@
 <div class="pokemon">
-  <h3>{{ pokemon.title }}</h3>
+  <h3>
+    {{ pokemon.title }}
+    <fa-icon [ngStyle]="{ color: 'purple' }" [icon]="faTimes"></fa-icon>
+  </h3>
   <p>superpower: {{ pokemon.superpower }}</p>
   <p>age: {{ pokemon.age }}</p>
 </div>
