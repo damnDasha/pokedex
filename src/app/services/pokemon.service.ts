@@ -24,6 +24,9 @@ export class PokemonService {
     const url = `${this.apiUrl}/${pokemon.id}`;
     return this.http.delete<Pokemon[]>(url);
   }
+  addPokemon(pokemon: Pokemon): Observable<Pokemon> {
+    return this.http.post<Pokemon>(this.apiUrl, pokemon); //httpOptions why not??
+  }
 }
 
 // Observables are kind of like promises, but better because:

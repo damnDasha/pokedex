@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Pokemon } from 'src/app/Pokemon';
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-pokemon',
@@ -6,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-pokemon.component.css'],
 })
 export class AddPokemonComponent implements OnInit {
+  @Output() onAddPokemon: EventEmitter<Pokemon> = new EventEmitter();
+
   'title': string;
   'superpower': string;
   'age': string;
+  showAddPokemon: boolean = false;
+  subscription: Subscription;
 
-  constructor() {}
+  constructor(private uiService: UiService) {
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => (this.showAddPokemon = value));
+  }
 
   ngOnInit(): void {}
 
@@ -25,5 +36,11 @@ export class AddPokemonComponent implements OnInit {
       superpower: this.superpower,
       age: this.age,
     };
+
+    this.onAddPokemon.emit(newPokemon);
+
+    this.title = '';
+    this.superpower = '';
+    this.age = '';
   }
 }

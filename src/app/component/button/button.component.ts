@@ -16,3 +16,5 @@ export class ButtonComponent implements OnInit {
     this.btnClick.emit();
   }
 }
+//subject: taking the notification from a single, source observable
+//and forwarding them to one or more destination observables

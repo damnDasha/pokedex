@@ -24,6 +24,11 @@ export class PokemonComponent implements OnInit {
         () => (this.pokedex = this.pokedex.filter((p) => p.id !== pokemon.id))
       );
   }
+  addPokemon(pokemon: Pokemon) {
+    this.pokemonService
+      .addPokemon(pokemon)
+      .subscribe((pokemon) => this.pokedex.push(pokemon));
+  }
 }
 
 //void means it does not return anything
