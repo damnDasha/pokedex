@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from 'src/app/Pokemon';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,8 +9,13 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class PokemonItemComponent implements OnInit {
   @Input() 'pokemon': Pokemon;
+  @Output() onDeletePokemon: EventEmitter<Pokemon> = new EventEmitter();
   faTimes = faTimes;
   constructor() {}
 
   ngOnInit(): void {}
+
+  onDelete(pokemon) {
+    this.onDeletePokemon.emit(pokemon);
+  }
 }

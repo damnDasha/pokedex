@@ -1,2 +1,7 @@
-<app-pokemon-item *ngFor="let pokemon of pokedex" [pokemon]="pokemon">
+<app-add-pokemon></app-add-pokemon>
+<app-pokemon-item
+  *ngFor="let pokemon of pokedex"
+  [pokemon]="pokemon"
+  (onDeletePokemon)="deletePokemon(pokemon)"
+>
 </app-pokemon-item>

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../Pokemon';
-import { POKEDEX } from '../mock-back';
+import { POKEDEX } from '../mock-back'; //dont need this when server is live
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 // Declaration that marks a class as available to be provided and injected
 //as a dependency.
@@ -10,11 +11,18 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class PokemonService {
-  constructor() {}
+  private apiUrl = 'http://localhost:8000/'; //change to real url when backend is live
+  constructor(private http: HttpClient) {}
 
   getPokemon(): Observable<Pokemon[]> {
     const pokedex = of(POKEDEX);
     return pokedex;
+    //when backend is live change to this:
+    return this.http.get<Pokemon[]>(this.apiUrl);
+  }
+  deletePokemon(pokemon: Pokemon): Observable<Pokemon[]> {
+    const url = `${this.apiUrl}/${pokemon.id}`;
+    return this.http.delete<Pokemon[]>(url);
   }
 }
 

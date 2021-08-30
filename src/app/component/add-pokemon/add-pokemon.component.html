@@ -1,1 +1,39 @@
-<p>add-pokemon works!</p>
+<form class="add-form" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="title">Pokemon</label>
+    <input
+      type="text"
+      name="title"
+      [(ngModel)]="title"
+      id="title"
+      placeholder="name"
+    />
+  </div>
+  <div class="form-control">
+    <label for="superpower">Superpower</label>
+    <input
+      type="text"
+      name="superpower"
+      [(ngModel)]="superpower"
+      id="superpower"
+      placeholder="superpower"
+    />
+  </div>
+  <div class="form-control">
+    <label for="age">Age</label>
+    <input
+      type="text"
+      name="age"
+      [(ngModel)]="age"
+      id="age"
+      placeholder="age"
+    />
+  </div>
+
+  <input
+    type="submit"
+    value="gotta catch em all!"
+    class="btn btn-block"
+    style="color: pink"
+  />
+</form>

@@ -16,6 +16,14 @@ export class PokemonComponent implements OnInit {
       .getPokemon()
       .subscribe((pokedex) => (this.pokedex = pokedex));
   }
+
+  deletePokemon(pokemon: Pokemon) {
+    this.pokemonService
+      .deletePokemon(pokemon)
+      .subscribe(
+        () => (this.pokedex = this.pokedex.filter((p) => p.id !== pokemon.id))
+      );
+  }
 }
 
-//void mean it does not return anything
+//void means it does not return anything
