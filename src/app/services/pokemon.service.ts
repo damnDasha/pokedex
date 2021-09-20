@@ -11,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PokemonService {
-  private apiUrl = 'http://localhost:8000/'; //change to real url when backend is live
+  private apiUrl = 'http://localhost:8000'; //change to real url when backend is live
   constructor(private http: HttpClient) {}
 
   getPokemon(): Observable<Pokemon[]> {
